@@ -12,6 +12,17 @@ const PORT = process.env.PORT || 9500;
 app.use(cors());
 app.use(express.json());
 
+// Routes
+const roomRoutes = require('./routes/roomRoutes');
+const designRoutes = require('./routes/designRoutes');
+const authRoutes = require('./routes/authRoutes');
+const furnitureRoutes = require('./routes/furnitureRoutes');
+
+app.use('/api/rooms', roomRoutes);
+app.use('/api/designs', designRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/furniture', furnitureRoutes);
+
 // Basic Route
 app.get('/', (req, res) => {
   res.send('3D Furni Backend API is running...');
